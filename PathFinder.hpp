@@ -38,7 +38,12 @@ public:
     //visited_stations_ vector
     bool checkIfStationHasBeenVisited(string station_name) const;
     //returns true if there are at least 2 identical lines in the input
-    bool checkIfInputContainsIdenticalLines(string name_of_input_file);
+    //@pre: input file is not empty
+    bool checkIfInputContainsIdenticalLines(const string name_of_input_file);
+    //returns true if found at least 1 line in the input file with format other than
+    //Name_of_station -> Name_of station
+    //@pre: input file is not empty
+    bool checkIfConnectionsAreInWrongFormat(const string name_of_input_file);
     
     /***PROCESSING INPUT & DATA***/
     
@@ -84,3 +89,5 @@ private:
 };
 
 #endif
+
+//TODO add trim function

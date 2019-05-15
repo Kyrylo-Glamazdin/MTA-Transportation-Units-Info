@@ -55,7 +55,7 @@ bool PathFinder::checkIfStationHasBeenVisited(string station_name) const{
     return false;
 }//end checkIfStationHasBeenVisited
 
-bool PathFinder::checkIfInputContainsIdenticalLines(string name_of_input_file){
+bool PathFinder::checkIfInputContainsIdenticalLines(const string name_of_input_file){
     string next_line = "";
     vector<string> input_elements;
     ifstream input_file (name_of_input_file); //open fstream
@@ -75,6 +75,33 @@ bool PathFinder::checkIfInputContainsIdenticalLines(string name_of_input_file){
     return false;
 }//end checkIfInputContainsIdenticalLines
 
+bool PathFinder::checkIfConnectionsAreInWrongFormat(const string name_of_input_file){
+    string next_line = "";
+    vector<string> input_elements;
+    ifstream input_file (name_of_input_file); //open fstream
+    while(getline(input_file, next_line)){
+        input_elements.push_back(next_line); //copying each element to input_elements vector
+    }
+    input_file.close(); //close fstream
+    
+    //if the number of arrows (->) in a line is not equal to 1, then the line is in the wrong format
+    for(int i = 0; i < input_elements.size(); i++){
+        int arrow_counter = 0;
+        for (int j = 0; j < input_elements[i].size() - 1; j++){
+            //an arrow is found if one of the characters in the string is '-' and the
+            //following is '>'
+            if ((int)input_elements[i][j] == 45 && (int)input_elements[i][j+1] == 62){
+                arrow_counter++;
+            }
+        }
+        //formatting is wrong if at least one line contains less or more than 1 arrow '->'
+        if (arrow_counter != 1){
+            return true;
+        }
+    }
+    return false; //return false if format is correct
+}
+
 /***PROCESSING INPUT & DATA***/
 
 void PathFinder::readStationsInput(const string name_of_input_file){
@@ -89,7 +116,7 @@ void PathFinder::readStationsInput(const string name_of_input_file){
         }
     }
     catch (bool invalid_file){
-        cerr << "Invalid File" << endl;
+        cerr << "Invalid Stations File" << endl;
         input_file.close();
         return;
     }
@@ -105,3 +132,67 @@ void PathFinder::readStationsInput(const string name_of_input_file){
     
     input_file.close();
 }//end readStationsInput
+
+void PathFinder::readConnectionsInput(const string name_of_input_file){
+    string next_line = "";
+    ifstream input_file (name_of_input_file);
+    //throw an exception if an input file is invalid, i.e. if there are duplicate lines or
+    //if the file is empty
+    try{
+        bool invalid_file = (input_file.peek() == ifstream::traits_type::eof() || checkIfInputContainsIdenticalLines(name_of_input_file) ||
+            checkIfConnectionsAreInWrongFormat(name_of_input_file));
+        if (invalid_file){
+            throw invalid_file;
+        }
+    }
+    catch (bool invalid_file){
+        cerr << "Invalid Connections File" << endl;
+        input_file.close();
+        return;
+    }
+    //!!!!TODO add trim function
+    while(getline(input_file, next_line)){
+        //each line from input has to be greater than 3,
+        //so that it is not empty, contains at least 1 arrow (->), and at least 2 stations
+        //that are at least 1 characters long each
+        string departure_station = "";
+        string adjacent_station = "";
+        if (next_line.size() > 3){
+            int index = 0;
+            while(index < next_line.size() - 1){
+                if (!((int)next_line[index] == 45 && (int)next_line[index + 1] == 62)){
+                    departure_station.push_back(next_line[index]);
+                }
+                else{
+                    break;
+                }
+                index++;
+            }
+            
+            index+=2;
+            while (index < next_line.size()){
+                adjacent_station.push_back(next_line[index]);
+                index++;
+            }
+        }
+        
+        try{
+            bool station_doesnt_exist = (getStationByName(departure_station) == nullptr ||
+                getStationByName(adjacent_station) == nullptr);
+            if (station_doesnt_exist){
+                throw station_doesnt_exist;
+            }
+        }
+        catch (bool station_doesnt_exist){
+            cerr << "Station " << departure_station <<
+            " OR station " << adjacent_station << " doesn't exist" << endl;
+            input_file.close();
+            return;
+        }
+        getStationByName(departure_station)->addAdjacentNode(getStationByName(adjacent_station));
+        departure_station = "";
+        adjacent_station = "";
+    }
+    
+    input_file.close();
+}//end readConnectionsInput
