@@ -2,6 +2,8 @@
 #define PATHFINDER_
 
 #include <fstream>
+#include <queue>
+#include <string>
 #include "Station.hpp"
 
 class PathFinder{
@@ -18,14 +20,14 @@ public:
     
     //returns a pointer to the station with the name (item) is station_name
     //if station is not found, returns nullptr
-    Station* getStationByName(string station_name) const;
+    Node<string>* getStationByName(string station_name) const;
     
     /***MUTATOR METHODS***/
     
     //adds a pointer to the station to stations_ vector
-    void addStation(Station* st);
+    void addStation(Node<string>* st);
     //adds a pointer to the station to visited_stations_ vector
-    void addVisitedStation(Station* visited_station);
+    void addVisitedStation(Node<string>* visited_station);
     //deletes each object in stations_
     void delete_stations();
     
@@ -68,26 +70,27 @@ public:
     //are stations with such names in stations_ vector)
     //finds the shortest path from first_station to last_station and returns a vector
     //with pointers to each station in this path.
-    //In order to finds the shortest path, this function uses a Breadth-First Search
+    //In order to find the shortest path, this function uses a Breadth-First Search
     //algorithm by utilizing a queue with all partial paths. These paths can be seen
     //as the Tree structures where each path vector in the queue holds a sequence of
     //stations that are adjacent to each other and exclude repetititon (one station
     //other than the departure station can appear only once in only one of the paths,
     //because if station is already present in one partial path, the shortest path
     //to this station is already found and there is no need to include it again).
-    vector<Station*> findShortestPath(const string first_station, const string last_station);
+    //returns an empty vector if there is no route
+    vector<Node<string>*> findShortestPath(string first_station, string last_station);
 
 private:
+    //deletes extra characters from the input string
+    void trimInput(string& input_line);
     //the total number of pointers to Station objects in stations_ vector
     int num_of_stations_;
     //the total number of stations that have already been visited
     int num_of_visited_stations_;
     //a vector that hods pointers to the station objects initialized from input
-    vector<Station*> stations_;
+    vector<Node<string>*> stations_;
     //a vector that stores all the stations that have been already visited
-    vector<Station*> visited_stations_;
+    vector<Node<string>*> visited_stations_;
 };
 
 #endif
-
-//TODO add trim function
