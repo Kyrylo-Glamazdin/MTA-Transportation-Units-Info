@@ -35,6 +35,7 @@ void PathFinder::delete_stations(){
         delete stations_[i];
         stations_[i] = nullptr;
     }
+    stations_.clear();
     num_of_stations_ = 0;
 }
 
@@ -67,7 +68,7 @@ bool PathFinder::checkIfInputContainsIdenticalLines(const string name_of_input_f
     //if identical element is found, return true. else return false
     for (int i = 0; i < input_elements.size(); i++){
         for (int j = i+1; j < input_elements.size(); j++){
-            if (input_elements[i].size() > 0 && input_elements[j].size() > 0 && input_elements[i] == input_elements[j]){
+            if (!isComment(input_elements[i]) && input_elements[i].size() > 0 && input_elements[j].size() > 0 && input_elements[i] == input_elements[j]){
                 return true;
             }
         }
@@ -95,7 +96,7 @@ bool PathFinder::checkIfConnectionsAreInWrongFormat(const string name_of_input_f
             }
         }
         //formatting is wrong if at least one line contains less or more than 1 arrow '->'
-        if (arrow_counter != 1){
+        if (!isComment(input_elements[i]) && arrow_counter != 1){
             return true;
         }
     }
@@ -124,6 +125,10 @@ void PathFinder::trimInput(string& input_line){
     input_line = shortened;
 }//end trimInput
 
+bool PathFinder::isComment(const string line_to_check){
+    return line_to_check.size() > 1 && (int)line_to_check[0] == 47 && (int)line_to_check[1] == 47;
+}//end is comment
+
 /***PROCESSING INPUT & DATA***/
 
 void PathFinder::readStationsInput(const string name_of_input_file){
@@ -146,7 +151,7 @@ void PathFinder::readStationsInput(const string name_of_input_file){
     //if file is valid, create a new Station with the name taken from each line of input file,
     //and, if its length is greater than 0, add a station to stations_ vector
     while(getline(input_file, next_line)){
-        if (next_line.size() > 0){
+        if (next_line.size() > 0 && !isComment(next_line)){
             trimInput(next_line);
             Node<string>* station_to_be_added = new Station(next_line);
             addStation(station_to_be_added);
@@ -177,42 +182,44 @@ void PathFinder::readConnectionsInput(const string name_of_input_file){
         //each line from input has to be greater than 3,
         //so that it is not empty, contains at least 1 arrow (->), and at least 2 stations
         //that are at least 1 characters long each
-        string departure_station = "";
-        string adjacent_station = "";
-        if (next_line.size() > 3){
-            int index = 0;
-            //read the departure station
-            while(index < next_line.size() - 1){
-                if (!((int)next_line[index] == 45 && (int)next_line[index + 1] == 62)){
-                    departure_station.push_back(next_line[index]);
+        if (!isComment(next_line)){
+            string departure_station = "";
+            string adjacent_station = "";
+            if (next_line.size() > 3){
+                int index = 0;
+                //read the departure station
+                while(index < next_line.size() - 1){
+                    if (!((int)next_line[index] == 45 && (int)next_line[index + 1] == 62)){
+                        departure_station.push_back(next_line[index]);
+                    }
+                    else{
+                        break;
+                    }
+                    index++;
                 }
-                else{
-                    break;
-                }
-                index++;
-            }
             
-            //skip the arrow
-            index+=2;
-            //read the destination station
-            while (index < next_line.size()){
-                adjacent_station.push_back(next_line[index]);
-                index++;
+                //skip the arrow
+                index+=2;
+                //read the destination station
+                while (index < next_line.size()){
+                    adjacent_station.push_back(next_line[index]);
+                    index++;
+                }
             }
+            //remove extra characters on the sides
+            trimInput(departure_station);
+            trimInput(adjacent_station);
+            //if both stations are valid, create a connection
+            if (checkIfStationIsValid(departure_station) && checkIfStationIsValid(adjacent_station)){
+                getStationByName(departure_station)->addAdjacentNode(getStationByName(adjacent_station));
+            }
+            else{
+                cerr << "Station '" << departure_station <<
+                "' OR station '" << adjacent_station << "' doesn't exist" << endl << endl;
+            }
+            departure_station = "";
+            adjacent_station = "";
         }
-        //remove extra characters on the sides
-        trimInput(departure_station);
-        trimInput(adjacent_station);
-        //if both stations are valid, create a connection
-        if (checkIfStationIsValid(departure_station) && checkIfStationIsValid(adjacent_station)){
-            getStationByName(departure_station)->addAdjacentNode(getStationByName(adjacent_station));
-        }
-        else{
-            cerr << "Station '" << departure_station <<
-            "' OR station '" << adjacent_station << "' doesn't exist" << endl << endl;
-        }
-        departure_station = "";
-        adjacent_station = "";
     }
     
     input_file.close();

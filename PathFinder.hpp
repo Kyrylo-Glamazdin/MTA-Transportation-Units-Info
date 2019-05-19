@@ -46,6 +46,8 @@ public:
     //Name_of_station -> Name_of station
     //@pre: input file is not empty
     bool checkIfConnectionsAreInWrongFormat(const string name_of_input_file);
+    //returns true if a string is at least 2 characters long and first 2 characters are '//'
+    bool isComment(const string line_to_check);
     
     /***PROCESSING INPUT & DATA***/
     
