@@ -1,0 +1,103 @@
+Coney Island - Stillwell Av: D,F,N,Q -> West 8 St - NY Aquarium: F,Q
+West 8 St - NY Aquarium: F,Q -> Coney Island - Stillwell Av: D,F,N,Q
+West 8 St - NY Aquarium: F,Q -> Ocean Pkwy: Q
+Ocean Pkwy: Q -> West 8 St - NY Aquarium: F,Q
+Ocean Pkwy: Q -> Brighton Beach: B,Q
+Brighton Beach: B,Q -> Ocean Pkwy: Q
+Brighton Beach: B,Q -> Sheepshead Bay: B,Q
+Sheepshead Bay: B,Q -> Brighton Beach: B,Q
+Sheepshead Bay: B,Q -> Neck Rd: Q
+Neck Rd: Q -> Sheepshead Bay: B,Q
+Neck Rd: Q -> Avenue U: Q
+Avenue U: Q -> Neck Rd: Q
+Avenue U: Q -> Kings Hwy: B,Q
+Kings Hwy: B,Q -> Avenue U: Q
+Kings Hwy: B,Q -> Avenue M: Q
+Avenue M: Q -> Kings Hwy: B,Q
+Avenue M: Q -> Avenue J: Q
+Avenue J: Q -> Avenue M: Q
+Avenue J: Q -> Avenue H: Q
+Avenue H: Q -> Avenue J: Q
+Avenue H: Q -> Newkirk Plaza: B,Q
+Newkirk Plaza: B,Q -> Avenue H: Q
+Newkirk Plaza: B,Q -> Cortelyou Rd: Q
+Cortelyou Rd: Q -> Newkirk Plaza: B,Q
+Cortelyou Rd: Q -> Beverly Rd: Q
+Beverly Rd: Q -> Cortelyou Rd: Q
+Beverly Rd: Q -> Church Av: B,Q
+Church Av: B,Q -> Beverly Rd: Q
+Church Av: B,Q -> Prospect Park: B,Q,S
+Prospect Park: B,Q,S -> Church Av: B,Q
+Prospect Park: B,Q,S -> 7 Av: B,Q
+7 Av: B,Q -> Prospect Park: B,Q,S
+7 Av: B,Q -> Atlantic Ave - Barclays Center: B,D,N,Q,R,2,3,4,5
+Atlantic Ave - Barclays Center: B,D,N,Q,R,2,3,4,5 -> 7 Av: B,Q
+Atlantic Ave - Barclays Center: B,D,N,Q,R,2,3,4,5 -> DeKalb Av: B,Q,R
+DeKalb Av: B,Q,R -> Atlantic Ave - Barclays Center: B,D,N,Q,R,2,3,4,5
+DeKalb Av: B,Q,R -> Canal St: J,N,Q,R,W,Z,6
+Canal St: J,N,Q,R,W,Z,6 -> DeKalb Av: B,Q,R
+Canal St: J,N,Q,R,W,Z,6 -> 14 St - Union Sq: L,N,Q,R,W,4,5,6
+14 St - Union Sq: L,N,Q,R,W,4,5,6 -> Canal St: J,N,Q,R,W,Z,6
+14 St - Union Sq: L,N,Q,R,W,4,5,6 -> 34 St - Herald Sq: B,D,F,M,N,Q,R,W
+34 St - Herald Sq: B,D,F,M,N,Q,R,W -> 14 St - Union Sq: L,N,Q,R,W,4,5,6
+34 St - Herald Sq: B,D,F,M,N,Q,R,W -> Times Sq - 42 St: N,Q,R,S,W,1,2,3,7
+Times Sq - 42 St: N,Q,R,S,W,1,2,3,7 -> 34 St - Herald Sq: B,D,F,M,N,Q,R,W
+Times Sq - 42 St: N,Q,R,S,W,1,2,3,7 -> 57 St - 7 Av: N,Q,R,W
+57 St - 7 Av: N,Q,R,W -> Times Sq - 42 St: N,Q,R,S,W,1,2,3,7
+57 St - 7 Av: N,Q,R,W -> Lexington Av - 63 St: F,Q
+Lexington Av - 63 St: F,Q -> 57 St - 7 Av: N,Q,R,W
+Lexington Av - 63 St: F,Q -> 72 St: Q
+72 St: Q -> Lexington Av - 63 St: F,Q
+72 St: Q -> 86 St: Q
+86 St: Q -> 72 St: Q
+86 St: Q -> 96 St: Q
+96 St: Q -> 86 St: Q
+
+Coney Island - Stillwell Av: D,F,N,Q -> 86 St: N
+86 St: N -> Coney Island - Stillwell Av: D,F,N,Q
+86 St: N -> Avenue U: N
+Avenue U: N -> 86 St: N
+Avenue U: N -> Kings Hwy: N
+Kings Hwy: N -> Avenue U: N
+Kings Hwy: N -> Bay Pkwy: N
+Bay Pkwy: N -> Kings Hwy: N
+Bay Pkwy: N -> 20 Av: N
+20 Av: N -> Bay Pkwy: N
+20 Av: N -> 18 Av: N
+18 Av: N -> 20 Av: N
+18 Av: N -> New Utrecht Av: N
+New Utrecht Av: N -> 18 Av: N
+New Utrecht Av: N -> Fort Hamilton Pkwy: N
+Fort Hamilton Pkwy: N -> New Utrecht Av: N
+Fort Hamilton Pkwy: N -> 8 Av: N
+8 Av: N -> Fort Hamilton Pkwy: N
+8 Av: N -> 59 St: N,R
+59 St: N,R -> 8 Av: N
+59 St: N,R -> 36 St: D,N,R
+36 St: D,N,R -> 59 St: N,R
+36 St: D,N,R -> Atlantic Ave - Barclays Center: B,D,N,Q,R,2,3,4,5
+Atlantic Ave - Barclays Center: B,D,N,Q,R,2,3,4,5 -> 36 St: D,N,R
+Atlantic Ave - Barclays Center: B,D,N,Q,R,2,3,4,5 -> Canal St: J,N,Q,R,W,Z,6
+Canal St: J,N,Q,R,W,Z,6 -> Atlantic Ave - Barclays Center: B,D,N,Q,R,2,3,4,5
+Times Sq - 42 St: N,Q,R,S,W,1,2,3,7 -> 49 St: N,R,W
+49 St: N,R,W -> Times Sq - 42 St: N,Q,R,S,W,1,2,3,7
+49 St: N,R,W -> 57 St - 7 Av: N,Q,R,W
+57 St - 7 Av: N,Q,R,W -> 49 St: N,R,W
+57 St - 7 Av: N,Q,R,W -> 5 Av - 59 St: N,R,W
+5 Av - 59 St: N,R,W -> 57 St - 7 Av: N,Q,R,W
+5 Av - 59 St: N,R,W -> Lexington Av - 59 St: N,R,W,4,5,6
+Lexington Av - 59 St: N,R,W,4,5,6 -> 5 Av - 59 St: N,R,W
+Lexington Av - 59 St: N,R,W,4,5,6 -> Queensboro Plaza: N,W,7
+Queensboro Plaza: N,W,7 -> Lexington Av - 59 St: N,R,W,4,5,6
+Queensboro Plaza: N,W,7 -> 39 Av: N,W
+39 Av: N,W -> Queensboro Plaza: N,W,7
+39 Av: N,W -> 36 Av: N,W
+36 Av: N,W -> 39 Av: N,W
+36 Av: N,W -> Broadway: N,W
+Broadway: N,W -> 36 Av: N,W
+Broadway: N,W -> 30 Av: N,W
+30 Av: N,W -> Broadway: N,W
+30 Av: N,W -> Astoria Blvd: N,W
+Astoria Blvd: N,W -> 30 Av: N,W
+Astoria Blvd: N,W -> Astoria - Ditmars Blvd: N,W
+Astoria - Ditmars Blvd: N,W -> Astoria Blvd: N,W
