@@ -1,5 +1,3 @@
-#include "Node.hpp"
-#include "Station.hpp"
 #include "PathFinder.hpp"
 
 int main(){
@@ -8,19 +6,20 @@ int main(){
     
     p.readStationsInput("names_of_stations.csv");
     p.readConnectionsInput("connections.csv");
-    vector<Node<string>*> result = p.findShortestPath("New Utrecht Av", "Sheepshead Bay");
+    vector<Station*> result = p.findShortestPath("New Utrecht Av", "Sheepshead Bay");
     
     for (int i = 0; i < result.size(); i++){
         if (i < result.size() - 1){
-            cout << result[i]->getItem() << " --> ";
+            cout << result[i]->getActualName() << " --> ";
         }
         else{
-            cout << result[i]->getItem() << endl;
+            cout << result[i]->getActualName() << endl;
         }
     }
     
     
     p.delete_stations();
+    
     
     return 0;
 }

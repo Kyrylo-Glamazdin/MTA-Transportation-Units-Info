@@ -9,9 +9,9 @@ PathFinder::PathFinder(){
 
 /***ACCESSOR METHODS***/
 
-Node<string>* PathFinder::getStationByName(string station_name) const{
+Station* PathFinder::getStationByName(string station_name) const{
     for (int i = 0; i < num_of_stations_; i++){
-        if (stations_[i]->getItem() == station_name){
+        if (stations_[i]->getFullStationName() == station_name){
             return stations_[i];
         }
     }
@@ -20,12 +20,12 @@ Node<string>* PathFinder::getStationByName(string station_name) const{
 
 /***MUTATOR METHODS***/
 
-void PathFinder::addStation(Node<string>* st){
+void PathFinder::addStation(Station* st){
     stations_.push_back(st);
     num_of_stations_++;
 }//end addStation
 
-void PathFinder::addVisitedStation(Node<string>* visited_station){
+void PathFinder::addVisitedStation(Station* visited_station){
     visited_stations_.push_back(visited_station);
     num_of_visited_stations_++;
 }//end addVisitedStation
@@ -49,7 +49,7 @@ bool PathFinder::checkIfStationIsValid(string station_name) const{
 
 bool PathFinder::checkIfStationHasBeenVisited(string station_name) const{
     for (int i = 0; i < num_of_visited_stations_; i++){
-        if (visited_stations_[i]->getItem() == station_name){
+        if (visited_stations_[i]->getFullStationName() == station_name){
             return true;
         }
     }
@@ -153,7 +153,8 @@ void PathFinder::readStationsInput(const string name_of_input_file){
     while(getline(input_file, next_line)){
         if (next_line.size() > 0 && !isComment(next_line)){
             trimInput(next_line);
-            Node<string>* station_to_be_added = new Station(next_line);
+            Station* station_to_be_added = new Station(next_line);
+            station_to_be_added->setActualName();
             addStation(station_to_be_added);
         }
     }
@@ -211,7 +212,7 @@ void PathFinder::readConnectionsInput(const string name_of_input_file){
             trimInput(adjacent_station);
             //if both stations are valid, create a connection
             if (checkIfStationIsValid(departure_station) && checkIfStationIsValid(adjacent_station)){
-                getStationByName(departure_station)->addAdjacentNode(getStationByName(adjacent_station));
+                getStationByName(departure_station)->addAdjacentStation(getStationByName(adjacent_station));
             }
             else{
                 cerr << "Station '" << departure_station <<
@@ -225,7 +226,7 @@ void PathFinder::readConnectionsInput(const string name_of_input_file){
     input_file.close();
 }//end readConnectionsInput
 
-vector<Node<string>*> PathFinder::findShortestPath(string first_station, string last_station){
+vector<Station*> PathFinder::findShortestPath(string first_station, string last_station){
     //remove extra characters on the sides of first_station and last_station
     trimInput(first_station);
     trimInput(last_station);
@@ -240,16 +241,16 @@ vector<Node<string>*> PathFinder::findShortestPath(string first_station, string 
     catch (bool station_doesnt_exist){
         cerr << "Station '" << first_station <<
         "' OR station '" << last_station << "' doesn't exist" << endl;
-        vector<Node<string>*> empty_vector;
+        vector<Station*> empty_vector;
         return empty_vector;
     }
     
     //create a queue to hold the possiblie routes
-    queue<vector<Node<string>*> > possible_paths;
-    Node<string>* current_station = getStationByName(first_station);
+    queue<vector<Station*> > possible_paths;
+    Station* current_station = getStationByName(first_station);
     //mark first_station as visited
     addVisitedStation(current_station);
-    vector<Node<string>*> partial_routes;
+    vector<Station*> partial_routes;
     //add first station to the vector and push it int the queue
     partial_routes.push_back(current_station);
     possible_paths.push(partial_routes);
@@ -259,20 +260,20 @@ vector<Node<string>*> PathFinder::findShortestPath(string first_station, string 
     while(!possible_paths.empty()){
         //the front of the queue is always a ponential shortest path.
         //retrieve a vector with partial poute from the front of the vector
-        vector<Node<string>*> potential_solution = possible_paths.front();
+        vector<Station*> potential_solution = possible_paths.front();
         possible_paths.pop();
         //a shortest route is found when the last station in the vector from the front of the queue is a last_station, passed as a parameter
         if (potential_solution.size() > 0
-            && potential_solution[potential_solution.size() - 1]->getItem() == last_station){
+            && potential_solution[potential_solution.size() - 1]->getFullStationName() == last_station){
             return potential_solution;
         }
         //for each of the adjacent stations to the last station in the vector from the front of the queue,
         //copy a current partial route into the new vector, push each adjacent station to the back
         //of the vector, and push the resulting vector to the back of the queue
-        for (int i = 0; i < potential_solution[potential_solution.size() - 1]->getNumOfAdjacentNodes(); i++){
-            Node<string>* station_adjacent_to_current = potential_solution[potential_solution.size() - 1]->getAdjacentNodes()[i];
-            if(!checkIfStationHasBeenVisited(station_adjacent_to_current->getItem())){
-                vector<Node<string>*> copy_of_potential_solution = potential_solution;
+        for (int i = 0; i < potential_solution[potential_solution.size() - 1]->getNumOfAdjacentStations(); i++){
+            Station* station_adjacent_to_current = potential_solution[potential_solution.size() - 1]->getAdjacentStations()[i];
+            if(!checkIfStationHasBeenVisited(station_adjacent_to_current->getFullStationName())){
+                vector<Station*> copy_of_potential_solution = potential_solution;
                 copy_of_potential_solution.push_back(station_adjacent_to_current);
                 addVisitedStation(station_adjacent_to_current);
                 possible_paths.push(copy_of_potential_solution);
@@ -280,6 +281,6 @@ vector<Node<string>*> PathFinder::findShortestPath(string first_station, string 
         }
     }
     //return an empty vector if the route is not found
-    vector<Node<string>*> empty_vector;
+    vector<Station*> empty_vector;
     return empty_vector;
 }//end findShortestPath

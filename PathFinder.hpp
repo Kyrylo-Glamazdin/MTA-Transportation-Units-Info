@@ -20,14 +20,14 @@ public:
     
     //returns a pointer to the station with the name (item) is station_name
     //if station is not found, returns nullptr
-    Node<string>* getStationByName(string station_name) const;
+    Station* getStationByName(string station_name) const;
     
     /***MUTATOR METHODS***/
     
     //adds a pointer to the station to stations_ vector
-    void addStation(Node<string>* st);
+    void addStation(Station* st);
     //adds a pointer to the station to visited_stations_ vector
-    void addVisitedStation(Node<string>* visited_station);
+    void addVisitedStation(Station* visited_station);
     //deletes each object in stations_
     void delete_stations();
     
@@ -80,7 +80,7 @@ public:
     //because if station is already present in one partial path, the shortest path
     //to this station is already found and there is no need to include it again).
     //returns an empty vector if there is no route
-    vector<Node<string>*> findShortestPath(string first_station, string last_station);
+    vector<Station*> findShortestPath(string first_station, string last_station);
 
 private:
     //deletes extra characters from the input string
@@ -90,9 +90,9 @@ private:
     //the total number of stations that have already been visited
     int num_of_visited_stations_;
     //a vector that hods pointers to the station objects initialized from input
-    vector<Node<string>*> stations_;
+    vector<Station*> stations_;
     //a vector that stores all the stations that have been already visited
-    vector<Node<string>*> visited_stations_;
+    vector<Station*> visited_stations_;
 };
 
 #endif
