@@ -52,3 +52,148 @@ Broadway: N,W
 30 Av: N,W
 Astoria Blvd: N,W
 Astoria - Ditmars Blvd: N,W
+
+//F line
+
+Neptune Av: F
+Avenue X: F
+Avenue U: F
+Kings Hwy: F
+Avenue P: F
+Avenue N: F
+Bay Pkwy: F
+Avenue I: F
+18 Av: F
+Ditmas Av: F
+Church Av: F,G
+Fort Hamilton Pkwy: F,G
+15 St - Prospect Park: F,G
+7 Av: F,G
+4 Av - 9 St: F,G,R
+Smith 9 Sts: F,G
+Carroll St: F,G
+Bergen St: F,G
+Jay St - MetroTech: A,C,F,R
+York St: F
+East Broadway: F
+Delancey St - Essex St: F,J,M,Z
+2 Av: F
+Broadway - Lafayette St: B,D,F,M
+West 4 St - Washington Sq: A,B,C,D,E,F,M
+14 St: F,M
+23 St: F,M
+42 St - Bryant Pk: B,D,F,M
+47-50 Sts - Rockefeller Ctr: B,D,F,M
+57 St: F
+Roosevelt Island: F
+21 St - Queens-bridge: F
+Jackson Hts - Roosevelt Av: E,F,M,R
+Forest Hills - 71 Av: E,F,M,R
+75 Av: E,F
+Kew Gardens - Union Tpke: E,F
+Briarwood: E,F
+Supthin Blvd: F
+Parsons Blvd: F
+169 St: F
+Jamaica - 179 St: F
+
+//D line
+
+Bay 50 St: D
+25 Av: D
+Bay Pkwy: D
+20 Av: D
+18 Av: D
+79 St: D
+71 St: D
+62 St: D
+55 St: D
+50 St: D
+Fort Hamilton Pkwy: D
+9 Av: D
+Grand St: B,D
+7 Av: B,D,E
+59 St - Columbus Circle: A,B,C,D,1
+125 St: A,B,C,D
+145 St: A,B,C,D
+155 St: B,D
+161 St - Yankee Stadium: B,D,4
+167 St: B,D
+170 St: B,D
+174-175 Sts: B,D
+Tremont Av: B,D
+182-183 Sts: B,D
+Fordham Rd: B,D
+Kingsbridge Rd: B,D
+Bedford Pk Blvd: B,D
+Norwood - 205 St: D
+
+//A line
+
+Far Rockaway - Mott Av: A
+Beach 25 St: A
+Beach 36 St: A
+Beach 44 St: A
+Beach 60 St: A
+Beach 67 St: A
+Broad Channel: A,S
+Howard Beach - JFK Airport: A
+Aqueduct - North Conduit Av: A
+Aqueduct Racetrack: A
+Rockaway Blvd: A
+104 St: A
+111 St: A
+Ozone Park - Leffers Blvd: A
+88 St: A
+80 St: A
+Grant St: A
+Euclid Av: A,C
+Broadway Junction: A,C,J,L,Z
+Utica Av: A,C
+Nostrand Av: A,C
+Hoyt - Schermerhorn: A,C,G
+High St: A,C
+Fulton St: A,C,J,Z,2,3,4,5
+Chambers St: A,C
+Canal St: A,C,E
+14 St: A,C,E
+34 St - Penn Station: A,C,E
+42 St - Port Authority Bus Terminal: A,C,E
+168 St: A,C
+175 St: A
+181 St: A
+190 St: A
+Dyckman St: A
+Inwood - 207 St: A
+
+//R line
+
+Bay Ridge - 95 St: R
+86 St: R
+77 St: R
+Bay Ridge Av: R
+53 St: R
+45 St: R
+25 St: R
+Prospect Av: R
+Union St: R
+Court St: R
+Whitehall St - South Ferry: R,W
+Rector St: R,W
+Cortlandt St: R,W
+City Hall: R,W
+Prince St: R,W
+8 St - NYU: R,W
+23 St: R,W
+28 St: R,W
+Queens Plaza: E,M,R
+36 St: M,R
+Steinway St: M,R
+46 St: M,R
+Northern Blvd: M,R
+65 St: M,R
+Elmhurst Av: M,R
+Grand Av - Newtown: M,R
+Woodhaven Blvd: M,R
+63 Dr - Rego Park: M,R
+67 Av: M,R
