@@ -1,28 +1,549 @@
-Coney Island - Stillwell Av
-Bay 50 St
-25 Av
-Bay Pkwy - D
-20 Av - D
-18 Av - D
-79 St
-71 St
-62 St
-86 St
-Avenue U - N
-Kings Hwy - N
-Bay Pkwy - N
-20 Av - N
-18 Av - N
-New Utrecht Av
-West 8 St - NY Aquarium
-Neptune Av
-Avenue X
-Avenue U - F
-Kings Hwy - F
-Avenue P
-Ocean Pkwy
-Brighton Beach
-Sheepshead Bay
-Neck Rd
-Avenue U - Q
-Kings Hwy - Q
+//This file was created and edited by Kyrylo Glamazdin
+
+//This is the file containing the names of each station in the 
+//MTA New York City Transit System,
+//followed by the names of the trains that stop at the corresponding station.
+//For the purposes of this program, the lines of this file cannot be duplicated.
+
+//Clarifications:
+
+//S Rockaway - Far Rockaway Shuttle
+//S Franklin - Franklin Avenue Shuttle
+//S 42 St - 42 Street Shuttle
+//SIR - Staten Island Railroad
+//Z line is not included
+//LIRR, Metro-North, and other lines that go outside the city are not included
+//JFK AirTrain is not included
+
+
+//A line
+
+Far Rockaway - Mott Av: A
+Beach 25 St: A
+Beach 36 St: A
+Beach 44 St: A
+Beach 60 St: A
+Beach 67 St: A
+Broad Channel: A,S Rockaway
+Howard Beach - JFK Airport: A
+Aqueduct - North Conduit Av: A
+Aqueduct Racetrack: A
+Rockaway Blvd: A
+104 St: A
+111 St: A
+Ozone Park - Leffers Blvd: A
+88 St: A
+80 St: A
+Grant St: A
+Euclid Av: A,C
+Broadway Junction: A,C,J,L
+Utica Av: A,C
+Nostrand Av: A,C
+Hoyt - Schermerhorn: A,C,G
+High St: A,C
+Fulton St: A,C,J,2,3,4,5
+Chambers St: A,C
+Canal St: A,C,E
+14 St: A,C,E
+34 St - Penn Station: A,C,E
+42 St - Port Authority Bus Terminal: A,C,E
+168 St: A,C
+175 St: A
+181 St: A
+190 St: A
+Dyckman St: A
+Inwood - 207 St: A
+
+//C line
+
+Shepherd Av: C
+Van Siclen Av: C
+Liberty Av: C
+Rockaway Av: C
+Ralph Av: C
+Kingston - Throop Avs: C
+Franklin Av: C,S Franklin
+Clinton - Washington Avs: C
+Lafayette Av: C
+Spring St: C,E
+23 St: C,E
+50 St: C,E
+72 St: B,C
+81 St - Museum of Natural History: B,C
+86 St: B,C
+96 St: B,C
+103 St: B,C
+Cathedral Pkwy (110 St): B,C
+116 St: B,C
+135 St: B,C
+155 St: C
+163 St - Amsterdam Av: C
+
+//D line
+
+Bay 50 St: D
+25 Av: D
+Bay Pkwy: D
+20 Av: D
+18 Av: D
+79 St: D
+71 St: D
+62 St: D
+55 St: D
+50 St: D
+Fort Hamilton Pkwy: D
+9 Av: D
+Grand St: B,D
+7 Av: B,D,E
+59 St - Columbus Circle: A,B,C,D,1
+125 St: A,B,C,D
+145 St: A,B,C,D
+155 St: B,D
+161 St - Yankee Stadium: B,D,4
+167 St: B,D
+170 St: B,D
+174-175 Sts: B,D
+Tremont Av: B,D
+182-183 Sts: B,D
+Fordham Rd: B,D
+Kingsbridge Rd: B,D
+Bedford Pk Blvd: B,D
+Norwood - 205 St: D
+
+//F line
+
+Neptune Av: F
+Avenue X: F
+Avenue U: F
+Kings Hwy: F
+Avenue P: F
+Avenue N: F
+Bay Pkwy: F
+Avenue I: F
+18 Av: F
+Ditmas Av: F
+Church Av: F,G
+Fort Hamilton Pkwy: F,G
+15 St - Prospect Park: F,G
+7 Av: F,G
+4 Av - 9 St: F,G,R
+Smith 9 Sts: F,G
+Carroll St: F,G
+Bergen St: F,G
+Jay St - MetroTech: A,C,F,R
+York St: F
+East Broadway: F
+Delancey St - Essex St: F,J,M
+2 Av: F
+Broadway - Lafayette St: B,D,F,M
+West 4 St - Washington Sq: A,B,C,D,E,F,M
+14 St: F,M
+23 St: F,M
+42 St - Bryant Pk: B,D,F,M
+47-50 Sts - Rockefeller Ctr: B,D,F,M
+57 St: F
+Roosevelt Island: F
+21 St - Queens-bridge: F
+Jackson Hts - Roosevelt Av: E,F,M,R
+Forest Hills - 71 Av: E,F,M,R
+75 Av: E,F
+Kew Gardens - Union Tpke: E,F
+Briarwood: E,F
+Supthin Blvd: F
+Parsons Blvd: F
+169 St: F
+Jamaica - 179 St: F
+
+//G line
+
+Fulton St: G
+Clinton - Washington Avs: G
+Classon Av: G
+Bedford - Nostrand Avs: G
+Myrtle - Willoughby Avs: G
+Flushing Av: G
+Broadway: G
+Metropolitan Av: G
+Nassau Av: G
+Greenpoint Av: G
+21 St: G
+Court Sq: G,7
+
+//J line
+
+121 St: J
+111 St: J
+104 St: J
+Woodhaven Blvd: J
+85 St - Forest Pkwy: J
+75 St - Elderts Ln: J
+Cypress Hills: J
+Crescent St: J
+Norwood Av: J
+Cleveland St: J
+Van Siclen Av: J
+Alabama Av: J
+Chauncey St: J
+Halsey St: J
+Gates Av: J
+Kosciuszko St: J
+Myrtle Av: J,M
+Flushing Av: J,M
+Lorimer St: J,M
+Hewes St: J,M
+Marcy Av: J,M
+Bowery: J
+Chambers St: J
+Broad St: J
+
+//L line
+
+Canarsie - Rockaway Pkwy: L
+East 105 St: L
+New Lots Av: L
+Livonia Av: L
+Sutter Av: L
+Atlantic Av: L
+Bushwick Av - Aberdeen St: L
+Wilson Av: L
+Halsey Av: L
+Myrtle - Wyckoff Avs: L,M
+DeKalb Av: L
+Jefferson St: L
+Morgan Av: L
+Montrose Av: L
+Grand St: L
+Graham Av: L
+Lorimer St: L
+Bedford Av: L
+1 Av: L
+3 Av: L
+6 Av: L
+8 Av: L
+
+//M line
+
+Middle Village - Metropolitan Av: M
+Fresh Pond Rd: M
+Forest Av: M
+Seneca Av: M
+Knickerbocker Av: M
+Central Av: M
+
+//N line
+
+86 St: N
+Avenue U: N
+Kings Hwy: N
+Bay Pkwy: N
+20 Av: N
+18 Av: N
+New Utrecht Av: N
+Fort Hamilton Pkwy: N
+8 Av: N
+59 St: N,R
+36 St: D,N,R
+49 St: N,R,W
+5 Av - 59 St: N,R,W
+Lexington Av - 59 St: N,R,W,4,5,6
+Queensboro Plaza: N,W,7
+39 Av: N,W
+36 Av: N,W
+Broadway: N,W
+30 Av: N,W
+Astoria Blvd: N,W
+Astoria - Ditmars Blvd: N,W
+
+//Q line
+
+Coney Island - Stillwell Av: D,F,N,Q
+West 8 St - NY Aquarium: F,Q
+Ocean Pkwy: Q
+Brighton Beach: B,Q
+Sheepshead Bay: B,Q
+Neck Rd: Q
+Avenue U: Q
+Kings Hwy: B,Q
+Avenue M: Q
+Avenue J: Q
+Avenue H: Q
+Newkirk Plaza: B,Q
+Cortelyou Rd: Q
+Beverly Rd: Q
+Church Av: B,Q
+Parkside Av: Q
+Prospect Park: B,Q,S Franklin
+7 Av: B,Q
+Atlantic Ave - Barclays Center: B,D,N,Q,R,2,3,4,5
+DeKalb Av: B,Q,R
+Canal St: J,N,Q,R,W,6
+14 St - Union Sq: L,N,Q,R,W,4,5,6
+34 St - Herald Sq: B,D,F,M,N,Q,R,W
+Times Sq - 42 St: N,Q,R,S,W,1,2,3,7
+57 St - 7 Av: N,Q,R,W
+Lexington Av - 63 St: F,Q
+72 St: Q
+86 St: Q
+96 St: Q
+
+//R line
+
+Bay Ridge - 95 St: R
+86 St: R
+77 St: R
+Bay Ridge Av: R
+53 St: R
+45 St: R
+25 St: R
+Prospect Av: R
+Union St: R
+Court St: R
+Whitehall St - South Ferry: R,W
+Rector St: R,W
+Cortlandt St: R,W
+City Hall: R,W
+Prince St: R,W
+8 St - NYU: R,W
+23 St: R,W
+28 St: R,W
+Queens Plaza: E,M,R
+36 St: M,R
+Steinway St: M,R
+46 St: M,R
+Northern Blvd: M,R
+65 St: M,R
+Elmhurst Av: M,R
+Grand Av - Newtown: M,R
+Woodhaven Blvd: M,R
+63 Dr - Rego Park: M,R
+67 Av: M,R
+
+//E line
+
+Jamaica Center - Parsons/Archer: E,J
+Supthin Blvd - Archer Av - JFK Airport: E,J
+Jamaica - Van Wyck: E
+Court Sq - 23 St: E,M
+Lexington Av - 53 St: E,M
+5 Av - 53 St: E,M
+World Trade Center: E
+
+//S Franklin
+
+Botanic Garden: S Franklin
+Park Pl: S Franklin
+
+//S Rockaway
+
+Rockaway Park - Beach 116 St: S Rockaway
+Beach 105 St: S Rockaway
+Beach 98 St: S Rockaway
+Beach 90 St: S Rockaway
+
+//S 42 St
+
+Grand Central - 42 St: S,4,5,6,7
+
+//1 line
+
+South Ferry: 1
+Rector St: 1
+WTC - Cortlandt: 1
+Chambers St: 1,2,3
+Franklin St: 1
+Canal St: 1
+Houston St: 1
+Christopher St - Sheridan Sq: 1
+14 St: 1,2,3
+18 St: 1
+23 St: 1
+28 St: 1
+34 St - Penn Station: 1,2,3
+50 St: 1
+66 St: Lincoln Center: 1
+72 St: 1,2,3
+79 St: 1
+86 St: 1
+96 St: 1,2,3
+103 St: 1
+Cathedral Pkwy (110 St): 1
+116 St - Columbia University: 1
+125 St: 1
+137 St - City College: 1
+145 St: 1
+157 St: 1
+181 St: 1
+191 St: 1
+Dyckman St: 1
+207 St: 1
+215 St: 1
+Marble Hill - 225 St: 1
+231 St: 1
+238 St: 1
+Van Cortlandt Park - 242 St: 1
+
+//2 line
+
+Flatbush Av - Brooklyn College: 2,5
+Newkirk Av: 2,5
+Beverly Rd: 2,5
+Church Av: 2,5
+Winthrop St: 2,5
+Sterling St: 2,5
+President St: 2,5
+Franklin Av: 2,3,4,5
+Eastern Pkwy - Brooklyn Museum: 2,3
+Grand Army Plaza: 2,3
+Bergen St: 2,3
+Nevins St: 2,3,4,5
+Hoyt St: 2,3
+Borough Hall: 2,3,4,5
+Clark St: 2,3
+Wall St: 2,3
+Park Place: 2,3
+Central Park North (110 St): 2,3
+116 St: 2,3
+125 St: 2,3
+135 St: 2,3
+149 St - Grand Concourse: 2,4,5
+3 Av - 149 St: 2,5
+Jackson Av: 2,5
+Prospect Av: 2,5
+Intervale Av: 2,5
+Simpson St: 2,5
+Freeman St: 2,5
+174 St: 2,5
+West Farms Sq - East Tremont Av: 2,5
+East 180 St: 2,5
+Bronx Park East: 2
+Pelham Pkwy: 2
+Allerton Av: 2
+Burke Av: 2
+Gun Hill Rd: 2
+219 St: 2
+225 St: 2
+233 St: 2
+Nereid Av: 2
+Wakefield - 241 St: 2
+
+//3 line
+
+New Lots Av: 3
+Van Siclen Av: 3
+Pennsylvania Av: 3
+Junius St: 3
+Rockaway Av: 3
+Saratoga Av: 3
+Sutter Av - Rutland Rd: 3
+Crown Heights - Utica Av: 3,4
+Kingston Av: 3
+Nostrand Av: 3
+145 St: 3
+Harlem - 148 St: 3
+
+//4 line
+
+Bowling Green: 4,5
+Wall St: 4,5
+Brooklyn Bridge - City Hall: 4,5,6
+86 St: 4,5,6
+125 St: 4,5,6
+138 St - Grand Concourse: 4,5
+167 St: 4
+170 St: 4
+Mt Eden Av: 4
+176 St: 4
+Burnside Av: 4
+183 St: 4
+Fordham Rd: 4
+Kingsbridge Rd: 4
+Bedford Park Blvd - Lehman College: 4
+Mosholu Pkwy: 4
+Woodlawn: 4
+
+//5 line
+
+Morris Park: 5
+Pelham Pkwy: 5
+Gun Hill Rd: 5
+Baychester Av: 5
+Eastchester - Dyre Av: 5
+
+//6 line
+
+Spring St: 6
+Bleeker St: 6
+Astor Pl: 6
+23 St: 6
+28 St: 6
+33 St: 6
+51 St: 6
+68 St - Hunter College: 6
+77 St: 6
+96 St: 6
+103 St: 6
+110 St: 6
+116 St: 6
+3 Av - 138 St: 6
+Brook Av: 6
+Cypress Av: 6
+East 143 St - St Mary's St: 6
+East 149 St: 6
+Longwood Av: 6
+Hunts Point Av: 6
+Whitlock Av: 6
+Elder Av: 6
+Morrison Av - Soundview: 6
+St Lawrence Av: 6
+Parkchester: 6
+Castle Hill Av: 6
+Zerega Av: 6
+Westchester Sq - East Tremont Av: 6
+Middletown Rd: 6
+Buhre Av: 6
+Pelham Bay Park: 6
+
+//7 line
+
+34 St - Hudson Yards: 7
+5 Av: 7
+Vernon Blvd - Jackson Av: 7
+Hunters Point Av: 7
+33 St - Rawson St: 7
+40 St - Lowery St: 7
+46 St - Bliss St: 7
+52 St: 7
+61 St - Woodside: 7
+69 St: 7
+74 St - Broadway: 7
+82 St - Jackson Hts: 7
+90 St - Elmhurst Av: 7
+Junction Blvd: 7
+103 St - Corona Plaza: 7
+111 St: 7
+Mets - Willets Point: 7
+Flushing - Main St: 7
+
+//SIR
+
+St. George: SIR
+Tompkinsville: SIR
+Stapleton: SIR
+Clifton: SIR
+Grasmere: SIR
+Old Town: SIR
+Dongan Hills: SIR
+Jefferson Av: SIR
+Grant City: SIR
+New Dorp: SIR
+Oakwood Heights: SIR
+Bay Terrace: SIR
+Great Kills: SIR
+Eltingville: SIR
+Annadale: SIR
+Huguenot: SIR
+Prince's Bay: SIR
+Pleasant Plains: SIR
+Richmond Valley: SIR
+Arthur Kill: SIR
+Tottenville: SIR
