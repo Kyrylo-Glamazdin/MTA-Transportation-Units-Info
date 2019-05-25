@@ -4,10 +4,17 @@ The idea is to find a shortest path from one station to another by using a Bread
 
 An early (partial) version of the project can be launched by downloading the files, and compiling the project with C++11 or later.
 
-main.cpp contains one of the variations of the tasks that this project solves. Another variations can be tested by modifying the parameters in findShortestPath function in main.cpp file. Each parameter has to be a legitimate station found in names_of_stations.csv file. The program will output the shortest available route (if there is one) between the 2 stations, the names of which are passed as parameters. The output will be as follows: First station --> Second station --> Third station --> ... --> Last Station.
-The files names_of_stations.csv and connections.csv represent a small part of the NYC subway system with about 8 stations (and connections between them) on the D,F,N, and Q lines close to Coney Island - Stillwell Avenue station.
+main.cpp contains one of the variations of the tasks that this project solves. Another variations can be tested by modifying the parameters in findShortestPath function in main.cpp file. Each parameter has to be a legitimate station found in names_of_stations.csv file. The program will output the shortest available route (if there is one) between the 2 stations, the names of which are passed as parameters. The shortest route is the one with the smallest number of stations involved. The output will be as follows:
 
-!Please note that an alternative version of main.cpp, names_of_stations.csv, and connections.csv is available (main_alternative.cpp, names_of_stations_alternative.csv, etc), and these files show what the final input files and final output will look like. For now, only N, Q, F, D, A, and R lines are available and can be accessed (see main_alternative.cpp for syntax)!
+First station
+Second station
+Third station
+...
+Last Station.
+
+The files names_of_stations.csv and connections.csv represent a a full NYC subway system with about all of its stations and connections between them, including the express connections.
+For a proper execution of the program, these files may not be empty and may not contain duplicate lines.
+
 
 To compile and run the program:
 1) Download all the files in the same folder
