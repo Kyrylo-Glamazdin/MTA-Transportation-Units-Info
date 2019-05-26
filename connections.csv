@@ -5,7 +5,7 @@
 //Each connection is represented in a form Station A -> Station B,
 //and it indicates that there is a connection from A to B but not from B to A.
 //A 2-side connection (there is a route from A to B AND from B to A) must be represented
-//by 2 connection, such that A -> B, and B -> A.
+//by 2 connections, such that A -> B, and B -> A.
 //For the purposes of this program, the lines of this file cannot be duplicated.
 
 //Clarifications:
