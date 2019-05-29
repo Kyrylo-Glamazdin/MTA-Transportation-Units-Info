@@ -155,6 +155,7 @@ void PathFinder::readStationsInput(const string name_of_input_file){
             trimInput(next_line);
             Station* station_to_be_added = new Station(next_line);
             station_to_be_added->setActualName();
+            station_to_be_added->setTrains(next_line);
             addStation(station_to_be_added);
         }
     }
@@ -165,9 +166,10 @@ void PathFinder::readStationsInput(const string name_of_input_file){
 void PathFinder::readConnectionsInput(const string name_of_input_file){
     string next_line = "";
     ifstream input_file (name_of_input_file);
+    //TODO!!!
     //throw an exception if an input file is invalid, i.e. if there are duplicate lines or
     //if the file is empty
-    try{
+    /*try{
         bool invalid_file = (input_file.peek() == ifstream::traits_type::eof() || checkIfInputContainsIdenticalLines(name_of_input_file) ||
             checkIfConnectionsAreInWrongFormat(name_of_input_file));
         if (invalid_file){
@@ -178,7 +180,7 @@ void PathFinder::readConnectionsInput(const string name_of_input_file){
         cerr << "Invalid Connections File" << endl;
         input_file.close();
         return;
-    }
+    }*/
     while(getline(input_file, next_line)){
         //each line from input has to be greater than 3,
         //so that it is not empty, contains at least 1 arrow (->), and at least 2 stations
@@ -211,12 +213,15 @@ void PathFinder::readConnectionsInput(const string name_of_input_file){
             trimInput(departure_station);
             trimInput(adjacent_station);
             //if both stations are valid, create a connection
-            if (checkIfStationIsValid(departure_station) && checkIfStationIsValid(adjacent_station)){
-                getStationByName(departure_station)->addAdjacentStation(getStationByName(adjacent_station));
+            if (departure_station.size() > 0 && adjacent_station.size() > 0 &&
+                checkIfStationIsValid(departure_station) && checkIfStationIsValid(adjacent_station)){
+            getStationByName(departure_station)->addAdjacentStation(getStationByName(adjacent_station));
             }
             else{
-                cerr << "Station '" << departure_station <<
-                "' OR station '" << adjacent_station << "' doesn't exist" << endl << endl;
+                if (adjacent_station.size() > 0 && adjacent_station.size() > 0){
+                    cerr << "Station '" << departure_station <<
+                    "' OR station '" << adjacent_station << "' doesn't exist" << endl << endl;
+                }
             }
             departure_station = "";
             adjacent_station = "";

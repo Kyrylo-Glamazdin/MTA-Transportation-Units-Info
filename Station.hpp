@@ -29,15 +29,16 @@ public:
     //@param adjacent_stations is the vector with the pointers to stations that are adjacent to this station
     void addAdjacentStation(Station* adjacent_station);
     
-    //@param trains is a vector with objects of type strings that represent the names
-    //of the trains at this station
-    //The value of trains_vector_ are replaced with the values of trains
-    void setTrains(const vector<string> trains);
+    //@param trains is a string with the name of the station and the trains that stop in it.
+    //trains_vector_ is filled with strings that represent train names
+    void setTrains(const string trains_line);
     //@param train is the string that hold the name of the trains that will be added to the
     //end of train_vector_
     void addTrain(const string train);
     //sets the name of the station without the sequence of trains
     void setActualName();
+    //removes extra spaces from the name of the train
+    void trimTrain(string& input_line);
     
     /***ACCESSOR METHODS***/
     
@@ -67,7 +68,7 @@ private:
     //the number of trains that stop at this station
     int num_of_trains_;
     //the name of the station without the trains
-    //ex. Node with item 'Kings Highway: B, Q' will have a name 'Kings Highway'
+    //ex. Node with item 'Kings Highway: B,Q' will have a name 'Kings Highway'
     string actual_station_name_;
 };
 
