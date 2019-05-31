@@ -6,6 +6,7 @@
 //and it indicates that there is a connection from A to B but not from B to A.
 //A 2-side connection (there is a route from A to B AND from B to A) must be represented
 //by 2 connections, such that A -> B, and B -> A.
+//Please note that in this example, the stations with the names 'A' and 'B' must be found in the names_of_stations.csv file.
 //For the purposes of this program, the lines of this file cannot be duplicated.
 
 //Clarifications:
@@ -16,7 +17,6 @@
 //Connections to JFK AirTrain are not included
 //Z train is not included
 //J, 6 and 7 rush hour express connections are not included
-//Some connections might be missing
 
 Coney Island - Stillwell Av: D,F,N,Q -> West 8 St - NY Aquarium: F,Q
 West 8 St - NY Aquarium: F,Q -> Coney Island - Stillwell Av: D,F,N,Q
