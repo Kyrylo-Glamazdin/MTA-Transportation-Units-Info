@@ -1,3 +1,16 @@
+/*
+ This file was created and modified by Kyrylo Glamazdin.
+ 
+ This is the interface for the Station class.
+ A station is represented by its name and the trains that stop at this Station.
+ Also, a station holds a vector of all the adjacent stations, which can be accessed
+ directly from this station.
+ The methods below are used to retrieve and modify the relevant variables and information
+ about this Station.
+ 
+ Copyright © 2019 Kyrylo Glamazdin.
+*/
+
 #ifndef STATION_
 #define STATION_
 #include <iostream>

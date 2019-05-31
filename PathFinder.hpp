@@ -1,3 +1,14 @@
+/*
+ This file was created and modified by Kyrylo Glamazdin.
+ 
+ This is the interface for the PathFinder class.
+ It is used to read and process the input files with the names of the stations and
+ the connections between them, and it creates the shortest possible path between the two stations
+ (if there is one) by using the Breadth-First Search Algorithm.
+ 
+ Copyright © 2019 Kyrylo Glamazdin.
+*/
+
 #ifndef PATHFINDER_
 #define PATHFINDER_
 
@@ -15,12 +26,6 @@ public:
     //default constructor initializes an empty PathFinder object that can be
     //populated with stations and can find the shortest path to the needed station
     PathFinder();
-    
-    /***ACCESSOR METHODS***/
-    
-    //returns a pointer to the station with the name (item) is station_name
-    //if station is not found, returns nullptr
-    Station* getStationByName(string station_name) const;
     
     /***MUTATOR METHODS***/
     
@@ -65,26 +70,63 @@ public:
     //and add a pointer to "34 Street - Herald Square" to the adjacent_nodes_ vector of
     //"Times Square - 42nd Street" station
     void readConnectionsInput(const string name_of_input_file);
-    //@param first_station is the name of the station from which the shortest path
-    //is to be found.
-    //@param last_station is the name of the destination station
-    //@pre: first_station and last_station are valid names of the stations (i.e. there
-    //are stations with such names in stations_ vector)
-    //finds the shortest path from first_station to last_station and returns a vector
-    //with pointers to each station in this path.
-    //In order to find the shortest path, this function uses a Breadth-First Search
-    //algorithm by utilizing a queue with all partial paths. These paths can be seen
-    //as the Tree structures where each path vector in the queue holds a sequence of
-    //stations that are adjacent to each other and exclude repetititon (one station
-    //other than the departure station can appear only once in only one of the paths,
-    //because if station is already present in one partial path, the shortest path
-    //to this station is already found and there is no need to include it again).
-    //returns an empty vector if there is no route
-    vector<Station*> findShortestPath(string first_station, string last_station);
+    /*
+     @param first_station is the name of the station from which the shortest path
+     is to be found.
+     @param last_station is the name of the destination station
+     @pre: first_station and last_station are valid names of the stations (i.e. there
+     are stations with such names in stations_ vector).
+     This function serves as a wrapper for findShortestPath private function.
+     It calls findShortestPath with first_station and last_station parameters,
+     and prints the shortest path from first_station to last_station, if there is one.
+     The printing is in the following format:
+     
+     First Station
+     Second Station
+     ...
+     Last Station
+     
+     Only the actual names of the stations are displayed (i.e. the 'Times Square - 42 St' station
+     will be displayed as 'Times Square - 42 St' without mentioning the trains that stop there).
+    */
+    void printShortestPath(string first_station, string last_station);
 
 private:
+    
+    /***PROCESSING INPUT & DATA***/
+    
+    /*
+     @param first_station is the name of the station from which the shortest path
+     is to be found.
+     @param last_station is the name of the destination station
+     @pre: first_station and last_station are valid names of the stations (i.e. there
+     are stations with such names in stations_ vector)
+     finds the shortest path from first_station to last_station and returns a vector
+     with pointers to each station in this path.
+     In order to find the shortest path, this function uses a Breadth-First Search
+     algorithm by utilizing a queue with all partial paths. These paths can be seen
+     as the Tree structures where each path vector in the queue holds a sequence of
+     stations that are adjacent to each other and exclude repetititon (one station
+     other than the departure station can appear only once in only one of the paths,
+     because if station is already present in one partial path, the shortest path
+     to this station is already found and there is no need to include it again).
+     returns an empty vector if there is no route
+    */
+    vector<Station*> findShortestPath(string first_station, string last_station);
+    
+    /***ACCESSOR METHODS***/
+    
+    //returns a pointer to the station with the name (item) is station_name
+    //if station is not found, returns nullptr
+    Station* getStationByName(string station_name) const;
+    
+    /***HELPER METHODS***/
+    
     //deletes extra characters from the input string
     void trimInput(string& input_line);
+    
+    /***VARIABLES***/
+    
     //the total number of pointers to Station objects in stations_ vector
     int num_of_stations_;
     //the total number of stations that have already been visited

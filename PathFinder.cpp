@@ -1,3 +1,12 @@
+/*
+ This file was created and modified by Kyrylo Glamazdin.
+ 
+ This is the implementation of the constcructor and methods of the PathFinder class.
+ For more info please check the interface of this class.
+ 
+ Copyright © 2019 Kyrylo Glamazdin.
+*/
+
 #include "PathFinder.hpp"
 
 /***CONSTRUCTORS***/
@@ -69,6 +78,7 @@ bool PathFinder::checkIfInputContainsIdenticalLines(const string name_of_input_f
     for (int i = 0; i < input_elements.size(); i++){
         for (int j = i+1; j < input_elements.size(); j++){
             if (!isComment(input_elements[i]) && input_elements[i].size() > 0 && input_elements[j].size() > 0 && input_elements[i] == input_elements[j]){
+                cout << "There are duplicates of the following line: " << input_elements[i] << endl;
                 return true;
             }
         }
@@ -84,19 +94,22 @@ bool PathFinder::checkIfConnectionsAreInWrongFormat(const string name_of_input_f
         input_elements.push_back(next_line); //copying each element to input_elements vector
     }
     input_file.close(); //close fstream
-    
     //if the number of arrows (->) in a line is not equal to 1, then the line is in the wrong format
     for(int i = 0; i < input_elements.size(); i++){
         int arrow_counter = 0;
         for (int j = 0; j < input_elements[i].size() - 1; j++){
+            if (isComment(input_elements[i])){
+                break;
+            }
             //an arrow is found if one of the characters in the string is '-' and the
             //following is '>'
-            if ((int)input_elements[i][j] == 45 && (int)input_elements[i][j+1] == 62){
+            if (input_elements[i].size() > 1 && (int)input_elements[i][j] == 45 && (int)input_elements[i][j+1] == 62){
                 arrow_counter++;
             }
         }
         //formatting is wrong if at least one line contains less or more than 1 arrow '->'
         if (!isComment(input_elements[i]) && arrow_counter != 1){
+            cerr << "Wrong connection: " << input_elements[i] << endl;
             return true;
         }
     }
@@ -126,7 +139,7 @@ void PathFinder::trimInput(string& input_line){
 }//end trimInput
 
 bool PathFinder::isComment(const string line_to_check){
-    return line_to_check.size() > 1 && (int)line_to_check[0] == 47 && (int)line_to_check[1] == 47;
+    return line_to_check.size() == 0 || (line_to_check.size() > 1 && (int)line_to_check[0] == 47 && (int)line_to_check[1] == 47);
 }//end is comment
 
 /***PROCESSING INPUT & DATA***/
@@ -166,21 +179,15 @@ void PathFinder::readStationsInput(const string name_of_input_file){
 void PathFinder::readConnectionsInput(const string name_of_input_file){
     string next_line = "";
     ifstream input_file (name_of_input_file);
-    //TODO!!!
-    //throw an exception if an input file is invalid, i.e. if there are duplicate lines or
+    //check if an input file is invalid, i.e. if there are duplicate lines or
     //if the file is empty
-    /*try{
-        bool invalid_file = (input_file.peek() == ifstream::traits_type::eof() || checkIfInputContainsIdenticalLines(name_of_input_file) ||
+    bool invalid_file = (input_file.peek() == ifstream::traits_type::eof() || checkIfInputContainsIdenticalLines(name_of_input_file) ||
             checkIfConnectionsAreInWrongFormat(name_of_input_file));
-        if (invalid_file){
-            throw invalid_file;
-        }
-    }
-    catch (bool invalid_file){
+    if (invalid_file){
         cerr << "Invalid Connections File" << endl;
         input_file.close();
         return;
-    }*/
+    }
     while(getline(input_file, next_line)){
         //each line from input has to be greater than 3,
         //so that it is not empty, contains at least 1 arrow (->), and at least 2 stations
@@ -289,3 +296,17 @@ vector<Station*> PathFinder::findShortestPath(string first_station, string last_
     vector<Station*> empty_vector;
     return empty_vector;
 }//end findShortestPath
+
+void PathFinder::printShortestPath(string first_station, string last_station){
+    vector <Station*> shortestPath = findShortestPath(first_station, last_station);
+    
+    //print the path
+    cout << endl;
+    for (int i = 0; i < shortestPath.size(); i++){
+        cout << shortestPath[i]->getActualName() << endl;
+    }
+    cout << endl;
+    
+    return;
+    
+}//end printShortestPath

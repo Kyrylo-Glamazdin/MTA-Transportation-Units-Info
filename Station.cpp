@@ -1,3 +1,12 @@
+/*
+ This file was created and modified by Kyrylo Glamazdin.
+ 
+ This is the implementation of the constructors and methods of the Station class.
+ For more information please see the interface for this class.
+ 
+ Copyright © 2019 Kyrylo Glamazdin.
+*/
+
 #include "Station.hpp"
 
 /***CONSTRUCTORS***/
