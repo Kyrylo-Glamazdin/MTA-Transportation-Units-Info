@@ -4,7 +4,7 @@ The project was fully developed by Kyrylo Glamazdin.
 
 The idea of this project is to find a shortest path from one station to another by using a Breadth-First Search algorithm.
 
-The project can be launched by downloading the files, and compiling the project with C++11 or later.
+The project can be launched by downloading the files, and compiling them with C++11 or later.
 
 main.cpp contains one of the variations of the tasks that this project solves. Another variations can be tested by modifying the parameters in printShortestPath function in main.cpp file. Each parameter has to be a legitimate station found in names_of_stations.csv file. The program will output the shortest available route (if there is one) between the 2 stations, the names of which are passed as parameters to printShortestPath function in main.cpp. The shortest route is the one with the smallest number of stations involved. The output will be as follows:
 
