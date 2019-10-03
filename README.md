@@ -1,7 +1,5 @@
 # MTA-Transportation-Units-Info
 
-The project was fully developed by Kyrylo Glamazdin.
-
 The idea of this project is to find a shortest path from one station to another by using a Breadth-First Search algorithm.
 
 The project can be launched by downloading the files, and compiling them with C++11 or later.
@@ -22,5 +20,3 @@ To compile and run the program:
 1) Download all the files in the same folder
 2) Compile with at least C++11. (g++ -std=c++11 main.cpp Station.cpp PathFinder.cpp)
 3) Run the program (./a.out)
-
-Some additional features and optimization techniques will later be implemented, but the main idea can already be executed and tested by running the program.
